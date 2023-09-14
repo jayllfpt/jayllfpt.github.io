@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+
+
+
+  
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+
+  <title>♥♥♥♥</title>
+
+    <link rel="canonical" href="https://codepen.io/charlotte-johansson/pen/PoOxjPp">
+  
+  
+  
+  
+<style>
+:root {
+  --inside-bg: #fff0ee;
+  --front-bg: #ffe3df;
+  --drop-shadow: rgba(0, 0, 0, 0.5);
+  --text: #331717;
+}
+
+body {
+  background-color: #808080;
+}
+
+/* The card is the wrapper but the visible inside*/
+.card {
+  position: relative;
+  width: 380px;
+  height: 260px;
+  margin: 310px auto;
+  background-color: var(--inside-bg);
+  cursor: pointer;
+}
+
+.broken-heart {
+  display: none;
+}
+
+.happy-heart {
+  display: block;
+}
+
+/* The text inside of the card */
+.text-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  color: var(--text);
+  font-family: 'Montserrat';
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  grid-column: 1 / 6;
+  grid-row: 2 / 3;
+  justify-self: center;
+}
+
+.text {
+  transform: rotate(-6deg);
+  text-align: center;
+  width: 60%;
+  font-size: 16px;
+  font-weight: 500;
+  grid-column: 2 / 5;
+  grid-row: 3 / 4;
+  justify-self: center;
+}
+
+/* The hearts inside of the card */
+.large-heart {
+  grid-column: 1 / 2;
+  grid-row: 3 / 5;
+  align-self: center;
+}
+
+.medium-heart {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+  justify-self: end;
+}
+
+.small-heart {
+  grid-column: 5 / 6;
+  grid-row: 1 / 2;
+  align-self: end;
+}
+
+.card .front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  background-color: var(--front-bg);
+  background-size: contain;
+  transform-style: preserve-3d;
+  transform-origin: 50% 0%;
+  transform: perspective(800px) rotateX(0deg);
+  transition: all 1s ease-in-out;
+  z-index: 2;
+}
+
+.card:hover .front {
+  transform: perspective(800px) rotateX(170deg);
+}
+
+.card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: visible;
+  filter: drop-shadow(2px 2px 4px var(--drop-shadow));
+  transform-style: preserve-3d;
+  transform-origin: 50% 0%;
+  transform: perspective(800px) rotateX(0deg);
+  transition: all 1s ease-in-out;
+  background-color: var(--inside-bg);
+}
+
+.card:hover .back {
+  transform: perspective(800px) rotateX(170deg); /* the card flip. */
+  
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <div class="card">
+	<div class="back"></div>
+  <div class="front">
+	<svg
+				 class="broken-heart"
+				 width="116"
+				 height="191"
+				 viewBox="0 0 116 191"
+				 fill="none"
+				 xmlns="http://www.w3.org/2000/svg"
+				 >
+			<path d="M33.7389 174.54L45.65 138L28.4537 160.501L33.7389 174.54Z" fill="#FFF9F8" />
+			<path d="M74.9999 191L58.1688 143.083L56.3371 171.344L74.9999 191Z" fill="#FFF9F8" />
+			<path d="M92.673 150.309L72.9006 127L76.6547 155.07L92.673 150.309Z" fill="#FFF9F8" />
+			<path
+						d="M54.4201 108.016L61.5323 126.252L76.228 114.653L95.1936 99.7345L112.289 72.9206L109.485 55.0773L103.88 46.9633L89.6624 44.4904L70.406 55.4194L57.5336 71.3976L63.4516 81.6863L58.5442 86.2871L62.1559 96.9254L54.4201 108.016Z"
+						fill="#FF3626"
+						/>
+			<path
+						d="M14.7048 108.069L37.9556 120.575L61.3634 134.068L56 121.266L49.5 108.069L52.7316 99.5L45.5 90.5L52.7316 79.7497L42.9705 66.1126L25.184 59.3198L7.40706 62.1448L1.49094 72.7041L3.84505 87.5182L14.7048 108.069Z"
+						fill="#FF3626"
+						/>
+			<path d="M31 0H55L70 38L50 49L55 67L31 43L50 38L31 0Z" fill="#FFF9F8" />
+			<path
+						d="M105.236 66.8401L94.5474 63.8006L98.7844 70.7653L94.5474 87L102.343 76.6156L105.236 66.8401Z"
+						fill="#FFF9F8"
+						/>
+		</svg>
+		<svg
+				 class="happy-heart"
+				 width="206"
+				 height="165"
+				 viewBox="0 0 206 165"
+				 fill="none"
+				 xmlns="http://www.w3.org/2000/svg"
+				 >
+			<path
+						d="M70.7048 101.069L93.9556 113.575L117.363 127.068L131.023 114.266L155.5 93L167.5 65.7041L159.113 52.0867L152.841 44.4768L138.465 43.2173L120.204 55.7384L108.732 72.7497L98.9704 59.1126L79.5 47.5L59.845 52.0867L57.4909 65.7041L59.845 80.5182L70.7048 101.069Z"
+						fill="#FFADC3"
+						/>
+			<path
+						d="M64.1106 104.054L87.3614 116.56L110.769 130.053L124.429 117.251L142.063 100.779L156.825 72.6133L152.519 55.0717L146.247 47.4618L131.871 46.2023L113.61 58.7234L102.137 75.7347L92.3762 62.0976L74.5898 55.3049L56.8128 58.1298L50.8967 68.6891L53.2508 83.5033L64.1106 104.054Z"
+						fill="#FF3626"
+						/>
+			<path
+						d="M188.392 13.7251L170.453 38.4725L196.825 28.1521L188.392 13.7251Z"
+						fill="#FFF9F8"
+						/>
+			<path d="M103.265 6.4916L112.9 35.499L117.5 0.153351L103.265 6.4916Z" fill="#FFF9F8" />
+			<path
+						d="M205.913 111.621L177.383 100.653L201.776 126.644L205.913 111.621Z"
+						fill="#FFF9F8"
+						/>
+			<path
+						d="M33.8771 19.2433L58.2919 37.6326L48.456 11.0759L33.8771 19.2433Z"
+						fill="#FFF9F8"
+						/>
+			<path
+						d="M153.777 160.055L134.005 136.746L137.759 164.816L153.777 160.055Z"
+						fill="#FFF9F8"
+						/>
+			<path
+						d="M0.706701 98.4636L38.3462 90.6958L10.2802 86.9142L0.706701 98.4636Z"
+						fill="#FFF9F8"
+						/>
+			<path
+						d="M53.9272 162.498L76.4539 130.027L42.1077 150.685L53.9272 162.498Z"
+						fill="#FFF9F8"
+						/>
+			<path d="M135.152 53L127 60.5522H135.152L142 75V60.5522L135.152 53Z" fill="#FFF9F8" />
+		</svg>
+  </div>
+  <div class="text-container">
+    <h1 class="title">Happy Love Day</h1>
+    <p class="text" id="loveDayText">You are the CSS to my HTML</p>
+		<svg 
+			class="small-heart" 
+			width="44" 
+			height="38"
+			viewBox="0 0 44 38" 
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M1.44664 20.1171L8.03919 28.6481L14.526 37.5735L21.75 35.0699L34.4157 31.2085L43.4306 23.023L42.5669 16.5493L41.493 12.6679L36.3405 9.80751L27.4472 11.441L20.3393 15.8782L18.9663 9.16853L13.6352 1.59941L5.54144 0.0417063L2.39892 4.72932L0.813483 10.6462L1.44664 20.1171Z"
+            fill="#FFADC3"
+          />
+        </svg>
+		<svg
+			class="medium-heart"
+			width="45"
+			height="61"
+			viewBox="0 0 45 61"
+	 		fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path d="M4.48794 33.8105L18.5165 46.623L32.481 60.1523L44.2632 53.618L59.4628 45.2213L74.7137 28.1592L74.7904 15.1611L71.7505 8.74842L61.9395 5.34372L46.9958 10.8732L36.0008 20.7291L31.5849 9.49732L20.3659 1.63191L7.46378 0.479975L1.47992 6.80946L0.519973 17.5612L4.48794 33.8105Z" fill="#FF7F75" />
+		</svg>
+		<svg
+			class="large-heart"
+			width="85"
+			height="85"
+			viewBox="0 0 85 85"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+						d="M-8.2952 58.0686L14.9556 70.5745L38.3634 84.0681L52.0234 71.2656L69.6569 54.7941L84.4195 26.6282L80.1131 9.08671L73.8411 1.47675L59.4653 0.217288L41.204 12.7384L29.7316 29.7497L19.9705 16.1126L2.184 9.31985L-15.5929 12.1448L-21.5091 22.7041L-19.155 37.5182L-8.2952 58.0686Z"
+						fill="#FF3626"
+						/>
+		</svg>
+  </div>
+</div>
+  
+<script>
+  document.querySelector('body').addEventListener('keyup', event => {
+    if (event.key === 'x') {
+      dump();
+    }
+  });
+
+  const dump = () => {
+    document.documentElement.style.setProperty('--front-bg', '#333'); /* changing the CSS variable value */
+    document.querySelector('.happy-heart').style.display = 'none';
+    document.querySelector('.broken-heart').style.display = 'block';
+
+    // Calculate the number of days from September 1, 2022, to today
+    const today = new Date();
+    const september1st2022 = new Date('2022-09-01');
+    const timeDiff = Math.abs(today - september1st2022);
+    const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+    // Update the text with the calculated days
+    document.querySelector('.title').style.textDecoration = 'line-through';
+    document.querySelector('.text').innerText = `Day ${daysDiff}`;
+    document.querySelector('#loveDayText').innerText = `Day ${daysDiff}`;
+  };
+
+  // Call the dump() function when the page loads
+  dump();
+</script>
+
+  
+</body>
+
+</html>

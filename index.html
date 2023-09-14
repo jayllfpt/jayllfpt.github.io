@@ -1,247 +1,179 @@
-
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  
+    <meta charset="UTF-8">
 
-    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+    <link rel="apple-touch-icon" type="image/png"
+        href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
 
     <meta name="apple-mobile-web-app-title" content="CodePen">
 
-    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
 
-    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
-
-
-
-  
-    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+    <link rel="mask-icon" type="image/x-icon"
+        href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg"
+        color="#111" />
 
 
-  <title>CodePen - GSAP ScrollTrigger - Demo</title>
 
-    <link rel="canonical" href="https://codepen.io/noeldelgado/pen/BaogqYy">
-  
-  
-  
-  
-<style>
-:root { font-size: 16px }
-@media (max-width: 500px) { :root { font-size: 14px } }
+    <script
+        src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js">
+    </script>
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-::-moz-selection {
-  background: #87cd33;
-  color: white;
-}
+    <title>CodePen - Countdown Timer</title>
 
-::selection {
-  background: #87cd33;
-  color: white;
-}
+    <link rel="canonical" href="https://codepen.io/AllThingsSmitty/pen/JJavZN">
 
-body {
-  overflow: hidden;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-}
 
-h1 { font-size: 5rem }
-h2 { font-size: 2rem }
 
-img {
-  width: 100%;
-  height: auto;
-  background: #f0f0f0;
-}
+    <style>
+        /* general styling */
+        :root {
+            --smaller: .75;
+        }
 
-ul {
-  padding-left: 1rem;
-  list-style: none;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-li {
-  flex-shrink: 0;
-  width: clamp(500px, 60vw, 800px);
-  padding-right: 1rem;
-}
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
 
-header {height: 100vh}
-footer {height: 50vh}
+        body {
+            align-items: center;
+            background-color: #B9D6F3;
+            display: flex;
+            font-family: -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Oxygen-Sans,
+                Ubuntu,
+                Cantarell,
+                "Helvetica Neue",
+                sans-serif;
+        }
 
-:-webkit-any-link { color: #4e9815; }
+        .container {
+            color: #333;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-:-moz-any-link { color: #4e9815; }
+        h1 {
+            font-weight: normal;
+            letter-spacing: .125rem;
+            text-transform: uppercase;
+        }
 
-:any-link { color: #4e9815; }
+        li {
+            display: inline-block;
+            font-size: 1.5em;
+            list-style-type: none;
+            padding: 1em;
+            text-transform: uppercase;
+        }
 
-.df {display: flex}
-.aic {align-items: center}
-.jcc {justify-content: center}
+        li span {
+            display: block;
+            font-size: 4.5rem;
+        }
 
-.loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: black;
-  color: white;
-}
+        .emoji {
+            display: none;
+            padding: 1rem;
+        }
 
-.demo-wrapper {
-  overflow-x: hidden;
-}
+        .emoji span {
+            font-size: 4rem;
+            padding: 0 .5rem;
+        }
 
-.wrapper {
-  display: flex;
-}
+        @media all and (max-width: 768px) {
+            h1 {
+                font-size: calc(1.5rem * var(--smaller));
+            }
 
-.demo-gallery:not(.last) {
-  padding-bottom: 1rem;
-}
+            li {
+                font-size: calc(1.125rem * var(--smaller));
+            }
 
-.demo-text .text {
-  font-size: clamp(8rem, 15vw, 16rem);
-  line-height: 1;
-  font-weight: 900;
-}
-</style>
+            li span {
+                font-size: calc(3.375rem * var(--smaller));
+            }
+        }
+    </style>
 
-  <script>
-  window.console = window.console || function(t) {};
-</script>
 
-  
-  
+    <script>
+        window.console = window.console || function (t) { };
+    </script>
+
+
+
 </head>
 
 <body translate="no">
-  <div class='loader df aic jcc'>
-  <div>
-    <h1>Loading</h1>
-    <h2 class='loader--text'>0%</h2>
-  </div>
-</div>
-<div class='demo-wrapper'>
-  <header class='df aic jcc'>
-    <div>
-      <h1>ScrollTrigger</h1>
-      <h2>demo</h2>
+    <div class="container">
+        <h1 id="headline">Love days counter</h1>
+        <div id="countdown">
+            <ul>
+                <li><span id="days"></span>days</li>
+                <li><span id="hours"></span>Hours</li>
+                <li><span id="minutes"></span>Minutes</li>
+                <li><span id="seconds"></span>Seconds</li>
+            </ul>
+        </div>
+        <div id="content" class="emoji">
+            <span>🥳</span>
+            <span>🎉</span>
+            <span>🎂</span>
+        </div>
     </div>
-  </header>
-  <section class='demo-text'>
-    <div class='wrapper text'>
-      ABCDEFGHIJKLMNOPQRSTUVWXYZ
-    </div>
-  </section>
-  <section class='demo-gallery'>
-    <ul class='wrapper'>
-      <li>
-        <img height='874' src='https://lh3.googleusercontent.com/pw/AIL4fc-kdSajqOHcXx29TOJUPqOvOYffgMU1Us4s-IEB1GNQTYdSysH7DKH89ogFCyDf3Wixtx9E4hiFsavrKnF_DczVWMKTkt5M43j34QuY08kfVoMt-BjEx0pINjJwleeMltr69wItJJFPhcbIkERXgWXEsXpaahN_0vXNilhx-NT8n15VrQtRmr12RnJLCS-AT9uqPHFc4uJfuqdIsqSjMNFgRWjELVVxD3_CfwQRNGGst1bmkrxLShlAzyl5KmfTmhSuYXyuoL5bYgH3mJYtt3I3ZtmCKMDpMBptkV9_fVdP1EWOmgY6KEcEpwIzivfiMSKZvQyWsIg7bEBwerw-c9FNWulR4EevpvwtQZ108An3NbU4hinn7fWSoPj0xfgvNM2mWB5dkBq1JPSniTw6c20rwMBdcHNQljR4krVI9-LCvtQGHq06UC3Lpn_ufai5DirPADdBmUB7RJIIFLFtwEqEyX5WNiqqircHStKIpzUVIu6qctRz7XRHxSXyzkC8VanbQKlivy5Yly30Gq9KL-ynIXYLEPTNa3vw8sqkUFCTD4rr_Rl-PEbAfzaBKtuTPKTGRwHrJZWClqZCTluAPwDlc1_HsUpfXfRgR1fLiqTbZVpYdZVMAZLc6dY2K4pZwSs55CzCVyFEHUPEiVOKpQQbiVbN1d5wKV6pHkkZPdlYHGDOx_iZvn9puS6qaOYoZBnykpiLFLhMpFhy4TSR0XG0v83IuobSQTHE8Bp8ufq3n1B0uAFqBylqQGau9_4qKU0dQouDxrRojV77ltaPE2iu_aXzHoC2lp6JGXv3XluxiO2e788o7kLsPB26WeQVyzNio3-LF91ntUFTpZjYXSEVUuuOzATMlKA5u6UFmA4SJXAH96sX-nvyMiEHL_KIhL8nZiERlpTKSKkHjBpH0ISjLQCGf12RsbNbEblOw_EQ8mw1xGXUryUdexqglku57KzyajjQzaw7Dv09tVF2_Ql-YDac1bE=w1395-h785-s-no?authuser=0' width='1240'>
-      </li>
-      <li>
-        <img height='874' src='https://lh3.googleusercontent.com/pw/AIL4fc-kdSajqOHcXx29TOJUPqOvOYffgMU1Us4s-IEB1GNQTYdSysH7DKH89ogFCyDf3Wixtx9E4hiFsavrKnF_DczVWMKTkt5M43j34QuY08kfVoMt-BjEx0pINjJwleeMltr69wItJJFPhcbIkERXgWXEsXpaahN_0vXNilhx-NT8n15VrQtRmr12RnJLCS-AT9uqPHFc4uJfuqdIsqSjMNFgRWjELVVxD3_CfwQRNGGst1bmkrxLShlAzyl5KmfTmhSuYXyuoL5bYgH3mJYtt3I3ZtmCKMDpMBptkV9_fVdP1EWOmgY6KEcEpwIzivfiMSKZvQyWsIg7bEBwerw-c9FNWulR4EevpvwtQZ108An3NbU4hinn7fWSoPj0xfgvNM2mWB5dkBq1JPSniTw6c20rwMBdcHNQljR4krVI9-LCvtQGHq06UC3Lpn_ufai5DirPADdBmUB7RJIIFLFtwEqEyX5WNiqqircHStKIpzUVIu6qctRz7XRHxSXyzkC8VanbQKlivy5Yly30Gq9KL-ynIXYLEPTNa3vw8sqkUFCTD4rr_Rl-PEbAfzaBKtuTPKTGRwHrJZWClqZCTluAPwDlc1_HsUpfXfRgR1fLiqTbZVpYdZVMAZLc6dY2K4pZwSs55CzCVyFEHUPEiVOKpQQbiVbN1d5wKV6pHkkZPdlYHGDOx_iZvn9puS6qaOYoZBnykpiLFLhMpFhy4TSR0XG0v83IuobSQTHE8Bp8ufq3n1B0uAFqBylqQGau9_4qKU0dQouDxrRojV77ltaPE2iu_aXzHoC2lp6JGXv3XluxiO2e788o7kLsPB26WeQVyzNio3-LF91ntUFTpZjYXSEVUuuOzATMlKA5u6UFmA4SJXAH96sX-nvyMiEHL_KIhL8nZiERlpTKSKkHjBpH0ISjLQCGf12RsbNbEblOw_EQ8mw1xGXUryUdexqglku57KzyajjQzaw7Dv09tVF2_Ql-YDac1bE=w1395-h785-s-no?authuser=0' width='1240'>
-      </li>
-      <li>
-        <img height='874' src='https://lh3.googleusercontent.com/pw/AIL4fc_5-9jeZFBOaYapuOK6kXgDZjbsr1cGEHRLnxLiY9Wrv6wYcOAC8BeyC_zJjCpYxJQ8J_RC6NLcDVjw6c4IfTNB3SUTdwFeWIad_0dnGdGgxoYmgPtKUFYzVyE0-xLqey-5TDH-jADmlTgAFoj-bpzs2W1wpufcbf9sVLh2_lExiSRuS3slPo0jT5SBiLMmmA81PajgeJWx5ruF0BS6uOzU_AphrOr_zRJ0JuUNLNyE1vXQNuK2-C8W2dvMHWqQGO5NeolcMfYp2NVrn9mItexDsEfo2Z6meB5ya0YzTrwIzUKYeymXQCd7TVl8Ggz9_ZFpSVXRIHpyuh1oUxWPEoD0G3LsXdPpMNI0Z39jBD38rHl7NVYcmJszL-EuZjuJk3eiVqF3_iFlThg0DkX4hJecvWy0UrHcNGGNyw3lMSl8wElZdFCS_wJUVtKIqEY0MczdEAcrkXrdZoNkwsFW7qu8Vr2s87VOWA6ex2hCcgiSbNhWoW2_3LYsA2hzVMXnWC-fqZ2_sZZHIO-brhejNHQ8mdDnOa-mgcZg5U4agUzIvoldFDqdgaMwFQdw_WNeUY5xgpEPRbXAFjNbhKrGm6v5UMXYUjZT1tnTV7Xi-V4OggATo7cj-aKWeAJmNX1faKOsOpqDAwzbMPZPUDDOw2mAiv_eEu5IaCEVeaGW-oJNSkE7F7aS-msDP3e0z2e7ADGsyeQj8cpRWxNfi1jWJYrLB2fDRJ3VsNGn7yhOIti9gMukTJkPx2cnX64h1YNCqs4x62n2jxEgu5sIU5lKzdCNp_fJnRSvg7WaX5RwfTQx5-uaIfvjposPtvTnOck4rPtij4DGHz5CzZRgNu8YpKQKYIMURfFSoTg4F1SIR8QkPOENZEBg52PHyL4GKkJ80xldydYCH4zTF6JmSdQQhe4noQW7UORjKqeqFE3qpMC_C2wwoS92ilAMtTXbg2FNO7DZVdSrMxRNTVECAis-s8MDIW3I1JQ=w613-h345-no?authuser=0' width='1240'>
-      </li>
-      <li>
-        <img height='874' src='https://lh3.googleusercontent.com/pw/AIL4fc_t0Ra_ZHXDZxOTjnfXlFREuqh2ab74kZ5VqW9i5jFDbNix0IZmZC1xwcs-auHLFcJQi-Ejy7znFXSypWSAPboDYj2-v1byh7NwuzoeekIqBY49539ssO9GPsVqV5XIrm3wFAFR-K2FRR9i4jqZVP8EEZ_-2EWIO3V_GmWGdeohGLU3pZh-1OCA1DcO2c5C6BfmYtBdx-NkmQRtJeSzz71PeOU2xMvLTTPd3bMPeEjssh4fPWn5mbbZoI3UCC95s4jH1L0VbLYtCPoMCWbr4D8FW4SjhZvl3w7qvfNM7whPVe6HIfY29oOEn1NYphITigY6MqVg0ruGPEjm_RzRNNJBkf_BJtXutbP9OJPtZhV9vx43YcIFcb3MtHmHsHPwfMXZXsTWlZRmgdHyNGRQVlQMXjFyF283HNf05FM6VeI0-4n1K1F7aXK2h7Gv75aJitGZLiP0QRyEW3UpagDXcYq-U6jmkngawqxmtrgG2fMVMDRxxtAbquGSv3AD_sjyFoNiSf0oJ9VcThyVlROVU0LB72dFzssNuV2cvkop3TG96jrx8pBNFQeMzsfAQBEuHhkg4zcqZ_kVcpS405xRR0IjawVe4Af6zjys4ubuWls5ekoBlsZf0Brzk3pDUnFLqlxnKASoo6cHquk9H1fcirlJw-e0oG1q8Mk-bQ3LEkZkF2g7KDlSoYX4wSgXd5nannYzaZp-rsexjwJSAlIiAV-ABBNT75RrEOshDTjChO2_BaII6GYSGbeYi2USnz-Xp2ZT0NiCGFUQfAO4MeO7eCo58pCoDZswJ5O2ftJJoW4O22B3UWYu-diu-bb2QAibtIlWZmQRS9xSLeI3iltCC9r8NNaX26zzV-WZFHL2MIz6Q7JTv1gXYdu3Lek-RAWE6ScKwqpl6fU6YyzxLXcTQNN3hgMlYwkF8ZTUjR5fgfBiNwFrEVdeEfcRT7ocf0q8Z_AequPwhAl3d3eJWGYPXkqmksdqEBE=w1395-h785-s-no?authuser=0' width='1240'>
-      </li>
-    </ul>
-  </section>
-  <section class='demo-gallery'>
-    <ul class='wrapper'>
-      <li>
-        <img height='874' src='https://lh3.googleusercontent.com/pw/AIL4fc_5-9jeZFBOaYapuOK6kXgDZjbsr1cGEHRLnxLiY9Wrv6wYcOAC8BeyC_zJjCpYxJQ8J_RC6NLcDVjw6c4IfTNB3SUTdwFeWIad_0dnGdGgxoYmgPtKUFYzVyE0-xLqey-5TDH-jADmlTgAFoj-bpzs2W1wpufcbf9sVLh2_lExiSRuS3slPo0jT5SBiLMmmA81PajgeJWx5ruF0BS6uOzU_AphrOr_zRJ0JuUNLNyE1vXQNuK2-C8W2dvMHWqQGO5NeolcMfYp2NVrn9mItexDsEfo2Z6meB5ya0YzTrwIzUKYeymXQCd7TVl8Ggz9_ZFpSVXRIHpyuh1oUxWPEoD0G3LsXdPpMNI0Z39jBD38rHl7NVYcmJszL-EuZjuJk3eiVqF3_iFlThg0DkX4hJecvWy0UrHcNGGNyw3lMSl8wElZdFCS_wJUVtKIqEY0MczdEAcrkXrdZoNkwsFW7qu8Vr2s87VOWA6ex2hCcgiSbNhWoW2_3LYsA2hzVMXnWC-fqZ2_sZZHIO-brhejNHQ8mdDnOa-mgcZg5U4agUzIvoldFDqdgaMwFQdw_WNeUY5xgpEPRbXAFjNbhKrGm6v5UMXYUjZT1tnTV7Xi-V4OggATo7cj-aKWeAJmNX1faKOsOpqDAwzbMPZPUDDOw2mAiv_eEu5IaCEVeaGW-oJNSkE7F7aS-msDP3e0z2e7ADGsyeQj8cpRWxNfi1jWJYrLB2fDRJ3VsNGn7yhOIti9gMukTJkPx2cnX64h1YNCqs4x62n2jxEgu5sIU5lKzdCNp_fJnRSvg7WaX5RwfTQx5-uaIfvjposPtvTnOck4rPtij4DGHz5CzZRgNu8YpKQKYIMURfFSoTg4F1SIR8QkPOENZEBg52PHyL4GKkJ80xldydYCH4zTF6JmSdQQhe4noQW7UORjKqeqFE3qpMC_C2wwoS92ilAMtTXbg2FNO7DZVdSrMxRNTVECAis-s8MDIW3I1JQ=w613-h345-no?authuser=0' width='1240'>
-      </li>
-      <li>
-        <img height='874' src='https://lh3.googleusercontent.com/pw/AIL4fc_5-9jeZFBOaYapuOK6kXgDZjbsr1cGEHRLnxLiY9Wrv6wYcOAC8BeyC_zJjCpYxJQ8J_RC6NLcDVjw6c4IfTNB3SUTdwFeWIad_0dnGdGgxoYmgPtKUFYzVyE0-xLqey-5TDH-jADmlTgAFoj-bpzs2W1wpufcbf9sVLh2_lExiSRuS3slPo0jT5SBiLMmmA81PajgeJWx5ruF0BS6uOzU_AphrOr_zRJ0JuUNLNyE1vXQNuK2-C8W2dvMHWqQGO5NeolcMfYp2NVrn9mItexDsEfo2Z6meB5ya0YzTrwIzUKYeymXQCd7TVl8Ggz9_ZFpSVXRIHpyuh1oUxWPEoD0G3LsXdPpMNI0Z39jBD38rHl7NVYcmJszL-EuZjuJk3eiVqF3_iFlThg0DkX4hJecvWy0UrHcNGGNyw3lMSl8wElZdFCS_wJUVtKIqEY0MczdEAcrkXrdZoNkwsFW7qu8Vr2s87VOWA6ex2hCcgiSbNhWoW2_3LYsA2hzVMXnWC-fqZ2_sZZHIO-brhejNHQ8mdDnOa-mgcZg5U4agUzIvoldFDqdgaMwFQdw_WNeUY5xgpEPRbXAFjNbhKrGm6v5UMXYUjZT1tnTV7Xi-V4OggATo7cj-aKWeAJmNX1faKOsOpqDAwzbMPZPUDDOw2mAiv_eEu5IaCEVeaGW-oJNSkE7F7aS-msDP3e0z2e7ADGsyeQj8cpRWxNfi1jWJYrLB2fDRJ3VsNGn7yhOIti9gMukTJkPx2cnX64h1YNCqs4x62n2jxEgu5sIU5lKzdCNp_fJnRSvg7WaX5RwfTQx5-uaIfvjposPtvTnOck4rPtij4DGHz5CzZRgNu8YpKQKYIMURfFSoTg4F1SIR8QkPOENZEBg52PHyL4GKkJ80xldydYCH4zTF6JmSdQQhe4noQW7UORjKqeqFE3qpMC_C2wwoS92ilAMtTXbg2FNO7DZVdSrMxRNTVECAis-s8MDIW3I1JQ=w613-h345-no?authuser=0' width='1240'>
-      </li>
-      <li>
-        <img height='874' src='https://lh3.googleusercontent.com/pw/AIL4fc_5-9jeZFBOaYapuOK6kXgDZjbsr1cGEHRLnxLiY9Wrv6wYcOAC8BeyC_zJjCpYxJQ8J_RC6NLcDVjw6c4IfTNB3SUTdwFeWIad_0dnGdGgxoYmgPtKUFYzVyE0-xLqey-5TDH-jADmlTgAFoj-bpzs2W1wpufcbf9sVLh2_lExiSRuS3slPo0jT5SBiLMmmA81PajgeJWx5ruF0BS6uOzU_AphrOr_zRJ0JuUNLNyE1vXQNuK2-C8W2dvMHWqQGO5NeolcMfYp2NVrn9mItexDsEfo2Z6meB5ya0YzTrwIzUKYeymXQCd7TVl8Ggz9_ZFpSVXRIHpyuh1oUxWPEoD0G3LsXdPpMNI0Z39jBD38rHl7NVYcmJszL-EuZjuJk3eiVqF3_iFlThg0DkX4hJecvWy0UrHcNGGNyw3lMSl8wElZdFCS_wJUVtKIqEY0MczdEAcrkXrdZoNkwsFW7qu8Vr2s87VOWA6ex2hCcgiSbNhWoW2_3LYsA2hzVMXnWC-fqZ2_sZZHIO-brhejNHQ8mdDnOa-mgcZg5U4agUzIvoldFDqdgaMwFQdw_WNeUY5xgpEPRbXAFjNbhKrGm6v5UMXYUjZT1tnTV7Xi-V4OggATo7cj-aKWeAJmNX1faKOsOpqDAwzbMPZPUDDOw2mAiv_eEu5IaCEVeaGW-oJNSkE7F7aS-msDP3e0z2e7ADGsyeQj8cpRWxNfi1jWJYrLB2fDRJ3VsNGn7yhOIti9gMukTJkPx2cnX64h1YNCqs4x62n2jxEgu5sIU5lKzdCNp_fJnRSvg7WaX5RwfTQx5-uaIfvjposPtvTnOck4rPtij4DGHz5CzZRgNu8YpKQKYIMURfFSoTg4F1SIR8QkPOENZEBg52PHyL4GKkJ80xldydYCH4zTF6JmSdQQhe4noQW7UORjKqeqFE3qpMC_C2wwoS92ilAMtTXbg2FNO7DZVdSrMxRNTVECAis-s8MDIW3I1JQ=w613-h345-no?authuser=0' width='1240'>
-      </li>
-    </ul>
-  </section>
-  <section class='demo-gallery'>
-    <ul class='wrapper'>
-      <li>
-        <img height='874' src='https://lh3.googleusercontent.com/pw/AIL4fc_1aAUUD1hTf2IxD9Jjpa145QU-CT3efyMp6QFmoux0b2BOdkaVbiXrDXy90jT2wxNy9Jf8668sSIz3c0aGBiOtECRowrsomK_EngR2pzQaE3dXBk2nYZr7JV3wRXxssQZQ074hkdPUfpSM6e4s6nMILyJRsXFg5c5fcvtan0EhRPwwa0ZqLJpmUiVkECApB6VRmxwKYrzrxzRmE6LhYgxt0KNfRYBNK07ZcvmhX2_aH8JahZr7BhgsvKXuqLqSMYkZFkH6k2hOLCqL47tyI2wiUlqKCazYvj-2THnDJiDFGJWROJFpdinlgASDYui0Bvhnea7cKa0I71p-aNHekzZD15oWjhKkqo2ZBWg-yS_KcZZeswPVhEzdVNjZDgdEiyVyeGGfeN5Pm3IPtGgJ9P2zMMayb2AFF74HNODsgzd9Xhmeuvu1-ZGkH8PUktfW-O0c81okX4SV1RXMSEV82J8nXfjqQG5_oPno2HVywVFMY6V0GYC9SWy1090CrW-lvRUxzWAOi7ndEbhskjFRId7zS0awlSvx6cMnI2bPNBtE6q46vzz4L22JSQTXi5MwSw0miBQyJMGJZomirpIn_B_yzzBFf2A1Wj8J1XpazJv4Etekhir6x3Fk8VkVj3TVe8jFogoUn1iUWVIB_JNxDbCiOyverwNONS6Vy37t7jbsBHPTAc61aq1ezzHHFFwqCxwwcW-t-WrZXhyleCngnGFrVxRp5892YwSs89skHjrTus0_RqYKoL9vWhhx8oehgY0L87wbYKgYfMSjl_IbldzCqHV1xpova5Cno3IMxESuc__AfsRfVuZxnc-_3EcUmjtSB3IjnEhGAefoOHr-xpkozR3RNqM6Pp1CfjC_J9GqX378f8u0XGbr_uy-F0SkP69QoInR1pmeSiOfewuAbqbj_3ffYm3bU7W9Jaq_m7bR5ISwVkJNwOsPFNLw7e88bovwsok2MC0__HaITAZmQwG4xYMuJLc=w1395-h785-s-no?authuser=0' width='1240'>
-      </li>
-      <li>
-        <img height='874' src='https://lh3.googleusercontent.com/pw/AIL4fc_1aAUUD1hTf2IxD9Jjpa145QU-CT3efyMp6QFmoux0b2BOdkaVbiXrDXy90jT2wxNy9Jf8668sSIz3c0aGBiOtECRowrsomK_EngR2pzQaE3dXBk2nYZr7JV3wRXxssQZQ074hkdPUfpSM6e4s6nMILyJRsXFg5c5fcvtan0EhRPwwa0ZqLJpmUiVkECApB6VRmxwKYrzrxzRmE6LhYgxt0KNfRYBNK07ZcvmhX2_aH8JahZr7BhgsvKXuqLqSMYkZFkH6k2hOLCqL47tyI2wiUlqKCazYvj-2THnDJiDFGJWROJFpdinlgASDYui0Bvhnea7cKa0I71p-aNHekzZD15oWjhKkqo2ZBWg-yS_KcZZeswPVhEzdVNjZDgdEiyVyeGGfeN5Pm3IPtGgJ9P2zMMayb2AFF74HNODsgzd9Xhmeuvu1-ZGkH8PUktfW-O0c81okX4SV1RXMSEV82J8nXfjqQG5_oPno2HVywVFMY6V0GYC9SWy1090CrW-lvRUxzWAOi7ndEbhskjFRId7zS0awlSvx6cMnI2bPNBtE6q46vzz4L22JSQTXi5MwSw0miBQyJMGJZomirpIn_B_yzzBFf2A1Wj8J1XpazJv4Etekhir6x3Fk8VkVj3TVe8jFogoUn1iUWVIB_JNxDbCiOyverwNONS6Vy37t7jbsBHPTAc61aq1ezzHHFFwqCxwwcW-t-WrZXhyleCngnGFrVxRp5892YwSs89skHjrTus0_RqYKoL9vWhhx8oehgY0L87wbYKgYfMSjl_IbldzCqHV1xpova5Cno3IMxESuc__AfsRfVuZxnc-_3EcUmjtSB3IjnEhGAefoOHr-xpkozR3RNqM6Pp1CfjC_J9GqX378f8u0XGbr_uy-F0SkP69QoInR1pmeSiOfewuAbqbj_3ffYm3bU7W9Jaq_m7bR5ISwVkJNwOsPFNLw7e88bovwsok2MC0__HaITAZmQwG4xYMuJLc=w1395-h785-s-no?authuser=0' width='1240'>
-      </li>
-      <li>
-        <img height='874' src='https://lh3.googleusercontent.com/pw/AIL4fc_1aAUUD1hTf2IxD9Jjpa145QU-CT3efyMp6QFmoux0b2BOdkaVbiXrDXy90jT2wxNy9Jf8668sSIz3c0aGBiOtECRowrsomK_EngR2pzQaE3dXBk2nYZr7JV3wRXxssQZQ074hkdPUfpSM6e4s6nMILyJRsXFg5c5fcvtan0EhRPwwa0ZqLJpmUiVkECApB6VRmxwKYrzrxzRmE6LhYgxt0KNfRYBNK07ZcvmhX2_aH8JahZr7BhgsvKXuqLqSMYkZFkH6k2hOLCqL47tyI2wiUlqKCazYvj-2THnDJiDFGJWROJFpdinlgASDYui0Bvhnea7cKa0I71p-aNHekzZD15oWjhKkqo2ZBWg-yS_KcZZeswPVhEzdVNjZDgdEiyVyeGGfeN5Pm3IPtGgJ9P2zMMayb2AFF74HNODsgzd9Xhmeuvu1-ZGkH8PUktfW-O0c81okX4SV1RXMSEV82J8nXfjqQG5_oPno2HVywVFMY6V0GYC9SWy1090CrW-lvRUxzWAOi7ndEbhskjFRId7zS0awlSvx6cMnI2bPNBtE6q46vzz4L22JSQTXi5MwSw0miBQyJMGJZomirpIn_B_yzzBFf2A1Wj8J1XpazJv4Etekhir6x3Fk8VkVj3TVe8jFogoUn1iUWVIB_JNxDbCiOyverwNONS6Vy37t7jbsBHPTAc61aq1ezzHHFFwqCxwwcW-t-WrZXhyleCngnGFrVxRp5892YwSs89skHjrTus0_RqYKoL9vWhhx8oehgY0L87wbYKgYfMSjl_IbldzCqHV1xpova5Cno3IMxESuc__AfsRfVuZxnc-_3EcUmjtSB3IjnEhGAefoOHr-xpkozR3RNqM6Pp1CfjC_J9GqX378f8u0XGbr_uy-F0SkP69QoInR1pmeSiOfewuAbqbj_3ffYm3bU7W9Jaq_m7bR5ISwVkJNwOsPFNLw7e88bovwsok2MC0__HaITAZmQwG4xYMuJLc=w1395-h785-s-no?authuser=0' width='1240'>
-      </li>
-    </ul>
-  </section>
-  <section class='demo-gallery'>
-    <ul class='wrapper'>
-      <li>
-        <img height='874' src='https://lh3.googleusercontent.com/pw/AIL4fc_t0Ra_ZHXDZxOTjnfXlFREuqh2ab74kZ5VqW9i5jFDbNix0IZmZC1xwcs-auHLFcJQi-Ejy7znFXSypWSAPboDYj2-v1byh7NwuzoeekIqBY49539ssO9GPsVqV5XIrm3wFAFR-K2FRR9i4jqZVP8EEZ_-2EWIO3V_GmWGdeohGLU3pZh-1OCA1DcO2c5C6BfmYtBdx-NkmQRtJeSzz71PeOU2xMvLTTPd3bMPeEjssh4fPWn5mbbZoI3UCC95s4jH1L0VbLYtCPoMCWbr4D8FW4SjhZvl3w7qvfNM7whPVe6HIfY29oOEn1NYphITigY6MqVg0ruGPEjm_RzRNNJBkf_BJtXutbP9OJPtZhV9vx43YcIFcb3MtHmHsHPwfMXZXsTWlZRmgdHyNGRQVlQMXjFyF283HNf05FM6VeI0-4n1K1F7aXK2h7Gv75aJitGZLiP0QRyEW3UpagDXcYq-U6jmkngawqxmtrgG2fMVMDRxxtAbquGSv3AD_sjyFoNiSf0oJ9VcThyVlROVU0LB72dFzssNuV2cvkop3TG96jrx8pBNFQeMzsfAQBEuHhkg4zcqZ_kVcpS405xRR0IjawVe4Af6zjys4ubuWls5ekoBlsZf0Brzk3pDUnFLqlxnKASoo6cHquk9H1fcirlJw-e0oG1q8Mk-bQ3LEkZkF2g7KDlSoYX4wSgXd5nannYzaZp-rsexjwJSAlIiAV-ABBNT75RrEOshDTjChO2_BaII6GYSGbeYi2USnz-Xp2ZT0NiCGFUQfAO4MeO7eCo58pCoDZswJ5O2ftJJoW4O22B3UWYu-diu-bb2QAibtIlWZmQRS9xSLeI3iltCC9r8NNaX26zzV-WZFHL2MIz6Q7JTv1gXYdu3Lek-RAWE6ScKwqpl6fU6YyzxLXcTQNN3hgMlYwkF8ZTUjR5fgfBiNwFrEVdeEfcRT7ocf0q8Z_AequPwhAl3d3eJWGYPXkqmksdqEBE=w1395-h785-s-no?authuser=0' width='1240'>
-      </li>
-      <li>
-        <img height='874' src='https://lh3.googleusercontent.com/pw/AIL4fc_t0Ra_ZHXDZxOTjnfXlFREuqh2ab74kZ5VqW9i5jFDbNix0IZmZC1xwcs-auHLFcJQi-Ejy7znFXSypWSAPboDYj2-v1byh7NwuzoeekIqBY49539ssO9GPsVqV5XIrm3wFAFR-K2FRR9i4jqZVP8EEZ_-2EWIO3V_GmWGdeohGLU3pZh-1OCA1DcO2c5C6BfmYtBdx-NkmQRtJeSzz71PeOU2xMvLTTPd3bMPeEjssh4fPWn5mbbZoI3UCC95s4jH1L0VbLYtCPoMCWbr4D8FW4SjhZvl3w7qvfNM7whPVe6HIfY29oOEn1NYphITigY6MqVg0ruGPEjm_RzRNNJBkf_BJtXutbP9OJPtZhV9vx43YcIFcb3MtHmHsHPwfMXZXsTWlZRmgdHyNGRQVlQMXjFyF283HNf05FM6VeI0-4n1K1F7aXK2h7Gv75aJitGZLiP0QRyEW3UpagDXcYq-U6jmkngawqxmtrgG2fMVMDRxxtAbquGSv3AD_sjyFoNiSf0oJ9VcThyVlROVU0LB72dFzssNuV2cvkop3TG96jrx8pBNFQeMzsfAQBEuHhkg4zcqZ_kVcpS405xRR0IjawVe4Af6zjys4ubuWls5ekoBlsZf0Brzk3pDUnFLqlxnKASoo6cHquk9H1fcirlJw-e0oG1q8Mk-bQ3LEkZkF2g7KDlSoYX4wSgXd5nannYzaZp-rsexjwJSAlIiAV-ABBNT75RrEOshDTjChO2_BaII6GYSGbeYi2USnz-Xp2ZT0NiCGFUQfAO4MeO7eCo58pCoDZswJ5O2ftJJoW4O22B3UWYu-diu-bb2QAibtIlWZmQRS9xSLeI3iltCC9r8NNaX26zzV-WZFHL2MIz6Q7JTv1gXYdu3Lek-RAWE6ScKwqpl6fU6YyzxLXcTQNN3hgMlYwkF8ZTUjR5fgfBiNwFrEVdeEfcRT7ocf0q8Z_AequPwhAl3d3eJWGYPXkqmksdqEBE=w1395-h785-s-no?authuser=0' width='1240'>
-      </li>
-      <li>
-        <img height='874' src='https://lh3.googleusercontent.com/pw/AIL4fc_t0Ra_ZHXDZxOTjnfXlFREuqh2ab74kZ5VqW9i5jFDbNix0IZmZC1xwcs-auHLFcJQi-Ejy7znFXSypWSAPboDYj2-v1byh7NwuzoeekIqBY49539ssO9GPsVqV5XIrm3wFAFR-K2FRR9i4jqZVP8EEZ_-2EWIO3V_GmWGdeohGLU3pZh-1OCA1DcO2c5C6BfmYtBdx-NkmQRtJeSzz71PeOU2xMvLTTPd3bMPeEjssh4fPWn5mbbZoI3UCC95s4jH1L0VbLYtCPoMCWbr4D8FW4SjhZvl3w7qvfNM7whPVe6HIfY29oOEn1NYphITigY6MqVg0ruGPEjm_RzRNNJBkf_BJtXutbP9OJPtZhV9vx43YcIFcb3MtHmHsHPwfMXZXsTWlZRmgdHyNGRQVlQMXjFyF283HNf05FM6VeI0-4n1K1F7aXK2h7Gv75aJitGZLiP0QRyEW3UpagDXcYq-U6jmkngawqxmtrgG2fMVMDRxxtAbquGSv3AD_sjyFoNiSf0oJ9VcThyVlROVU0LB72dFzssNuV2cvkop3TG96jrx8pBNFQeMzsfAQBEuHhkg4zcqZ_kVcpS405xRR0IjawVe4Af6zjys4ubuWls5ekoBlsZf0Brzk3pDUnFLqlxnKASoo6cHquk9H1fcirlJw-e0oG1q8Mk-bQ3LEkZkF2g7KDlSoYX4wSgXd5nannYzaZp-rsexjwJSAlIiAV-ABBNT75RrEOshDTjChO2_BaII6GYSGbeYi2USnz-Xp2ZT0NiCGFUQfAO4MeO7eCo58pCoDZswJ5O2ftJJoW4O22B3UWYu-diu-bb2QAibtIlWZmQRS9xSLeI3iltCC9r8NNaX26zzV-WZFHL2MIz6Q7JTv1gXYdu3Lek-RAWE6ScKwqpl6fU6YyzxLXcTQNN3hgMlYwkF8ZTUjR5fgfBiNwFrEVdeEfcRT7ocf0q8Z_AequPwhAl3d3eJWGYPXkqmksdqEBE=w1395-h785-s-no?authuser=0' width='1240'>
-      </li>
-      <li>
-        <img height='874' src='https://lh3.googleusercontent.com/pw/AIL4fc_t0Ra_ZHXDZxOTjnfXlFREuqh2ab74kZ5VqW9i5jFDbNix0IZmZC1xwcs-auHLFcJQi-Ejy7znFXSypWSAPboDYj2-v1byh7NwuzoeekIqBY49539ssO9GPsVqV5XIrm3wFAFR-K2FRR9i4jqZVP8EEZ_-2EWIO3V_GmWGdeohGLU3pZh-1OCA1DcO2c5C6BfmYtBdx-NkmQRtJeSzz71PeOU2xMvLTTPd3bMPeEjssh4fPWn5mbbZoI3UCC95s4jH1L0VbLYtCPoMCWbr4D8FW4SjhZvl3w7qvfNM7whPVe6HIfY29oOEn1NYphITigY6MqVg0ruGPEjm_RzRNNJBkf_BJtXutbP9OJPtZhV9vx43YcIFcb3MtHmHsHPwfMXZXsTWlZRmgdHyNGRQVlQMXjFyF283HNf05FM6VeI0-4n1K1F7aXK2h7Gv75aJitGZLiP0QRyEW3UpagDXcYq-U6jmkngawqxmtrgG2fMVMDRxxtAbquGSv3AD_sjyFoNiSf0oJ9VcThyVlROVU0LB72dFzssNuV2cvkop3TG96jrx8pBNFQeMzsfAQBEuHhkg4zcqZ_kVcpS405xRR0IjawVe4Af6zjys4ubuWls5ekoBlsZf0Brzk3pDUnFLqlxnKASoo6cHquk9H1fcirlJw-e0oG1q8Mk-bQ3LEkZkF2g7KDlSoYX4wSgXd5nannYzaZp-rsexjwJSAlIiAV-ABBNT75RrEOshDTjChO2_BaII6GYSGbeYi2USnz-Xp2ZT0NiCGFUQfAO4MeO7eCo58pCoDZswJ5O2ftJJoW4O22B3UWYu-diu-bb2QAibtIlWZmQRS9xSLeI3iltCC9r8NNaX26zzV-WZFHL2MIz6Q7JTv1gXYdu3Lek-RAWE6ScKwqpl6fU6YyzxLXcTQNN3hgMlYwkF8ZTUjR5fgfBiNwFrEVdeEfcRT7ocf0q8Z_AequPwhAl3d3eJWGYPXkqmksdqEBE=w1395-h785-s-no?authuser=0' width='1240'>
-      </li>
-    </ul>
-  </section>
-  <section class='demo-text'>
-    <div class='wrapper text'>
-      ABCDEFGHIJKLMNOPQRSTUVWXYZ
-    </div>
-  </section>
-  <footer class='df aic jcc'>
-    <p>Images from <a href="https://unsplash.com/">Unsplash</a></p>
-  </footer>
-</div>
-  <script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>
-<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js'></script>
-<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js'></script>
-      <script id="rendered-js" >
-gsap.registerPlugin(ScrollTrigger);
 
-const images = gsap.utils.toArray('img');
-const loader = document.querySelector('.loader--text');
-const updateProgress = (instance) =>
-loader.textContent = `${Math.round(instance.progressedCount * 100 / images.length)}%`;
+    <script id="rendered-js">
+        (function () {
+            const second = 1000,
+                minute = second * 60,
+                hour = minute * 60,
+                day = hour * 24;
 
-const showDemo = () => {
-  document.body.style.overflow = 'auto';
-  document.scrollingElement.scrollTo(0, 0);
-  gsap.to(document.querySelector('.loader'), { autoAlpha: 0 });
+            // Updated birthday to September 1st, 2022
+            const birthday = "09/01/2022";
 
-  gsap.utils.toArray('section').forEach((section, index) => {
-    const w = section.querySelector('.wrapper');
-    const [x, xEnd] = index % 2 ? ['100%', (w.scrollWidth - section.offsetWidth) * -1] : [w.scrollWidth * -1, 0];
-    gsap.fromTo(w, { x }, {
-      x: xEnd,
-      scrollTrigger: {
-        trigger: section,
-        scrub: 0.5 } });
+            const countDown = new Date(birthday).getTime(),
+                x = setInterval(function () {
 
+                    const now = new Date().getTime(),
+                        distance = countDown - now;
 
-  });
-};
+                    document.getElementById("days").innerText = Math.floor(-distance / day),
+                        document.getElementById("hours").innerText = Math.floor(-distance % day / hour),
+                        document.getElementById("minutes").innerText = Math.floor(-distance % hour / minute),
+                        document.getElementById("seconds").innerText = Math.floor(-distance % minute / second);
 
-imagesLoaded(images).on('progress', updateProgress).on('always', showDemo);
-//# sourceURL=pen.js
+                    // do something later when date is reached
+                    if (distance > 0) {
+                        document.getElementById("headline").innerText = "It's my birthday!";
+                        document.getElementById("countdown").style.display = "none";
+                        document.getElementById("content").style.display = "block";
+                        clearInterval(x);
+                    }
+                    // seconds
+                }, 0);
+        })();
     </script>
 
-  
+
 </body>
 
 </html>

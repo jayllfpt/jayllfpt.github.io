@@ -586,35 +586,100 @@ body {
     color: var(--text-primary);
 }
 
-/* Animations */
-.reveal-text {
+/* Animation cho Projects Section */
+.projects-section {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.reveal-text.active {
+.projects-section.active {
     opacity: 1;
     transform: translateY(0);
 }
 
-.reveal-item {
+.achievement-card {
     opacity: 0;
-    transform: translateX(-30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: scale(0.9);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.reveal-item.active {
+.achievement-card.active {
     opacity: 1;
+    transform: scale(1);
+}
+
+/* Thêm delay cho từng card */
+.achievement-card:nth-child(1) { transition-delay: 0.1s; }
+.achievement-card:nth-child(2) { transition-delay: 0.2s; }
+.achievement-card:nth-child(3) { transition-delay: 0.3s; }
+
+/* Animation cho Journey Section */
+.journey-section {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.journey-section.active {
+    opacity: 1;
+}
+
+.timeline-item {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateX(var(--translate-x, -100px));
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-item:nth-child(even) {
+    --translate-x: 100px;
+}
+
+.timeline-item.active {
+    opacity: 1;
+    filter: blur(0);
     transform: translateX(0);
 }
 
-/* Parallax Effect */
-.parallax {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+/* Hiệu ứng hover cho các phần tử */
+.achievement-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-image {
+    transition: all 0.5s ease;
+}
+
+.timeline-item:hover .timeline-image {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Animation cho timeline line */
+.timeline::before {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 1s ease;
+}
+
+.timeline.active::before {
+    transform: scaleY(1);
+}
+
+/* Thêm animation cho các dots trên timeline */
+.timeline-dot {
+    transform: scale(0);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-item.active .timeline-dot {
+    transform: scale(1);
 }
 
 /* Responsive Design */

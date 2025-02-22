@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pham Phu Ngoc Trai - Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">PPNT</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="certificates.html">Certificates</a>
+                <a href="gallery.html" class="active">Gallery</a>
+            </div>
+            <div class="contact-info">
+                <a href="mailto:phamphungoctraivl@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/yourgithub" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourlinkedin" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="tel:+84903027947" title="Phone"><i class="fas fa-phone"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gallery-section">
+            <h1 class="section-title reveal-text">Image Gallery</h1>
+            <div class="gallery-grid">
+                <!-- Images will be loaded dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-nav prev" aria-label="Previous image">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav next" aria-label="Next image">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Pham Phu Ngoc Trai. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>

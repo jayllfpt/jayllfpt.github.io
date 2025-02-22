@@ -1,0 +1,20 @@
+[
+    {"name": "[Coursera] Introduction to AI.pdf", "category": "ai"},
+    {"name": "[Coursera] AI Ethics in Action.pdf", "category": "ai"},
+    {"name": "[Coursera] Prompt Engineering For ChatGPT.pdf", "category": "ai"},
+    {"name": "[HackerRank]Python (Basic).png", "category": "programming"},
+    {"name": "[HackerRank]Problem Solving (Intermediate).png", "category": "programming"},
+    {"name": "[BitDegree] HTML - CSS Basic.jpeg", "category": "programming"},
+    {"name": "[Udemy]Docker Fast-Track.pdf", "category": "programming"},
+    {"name": "[Coursera] IBM Fullstack Software Dev.pdf", "category": "programming"},
+    {"name": "[Coursera] Applied DS with R.pdf", "category": "data"},
+    {"name": "[IBM] DataAnalysis With Python.pdf", "category": "data"},
+    {"name": "[Coursera] BigData.pdf", "category": "data"},
+    {"name": "[Coursera] Project Management Principles and Practices.pdf", "category": "other"},
+    {"name": "[Coursera] ProjectManagement Project.pdf", "category": "other"},
+    {"name": "[Coursera] Academic English Writing.pdf", "category": "other"},
+    {"name": "[Coursera] Academic Skills for University Success.pdf", "category": "other"},
+    {"name": "[MS] MOS PowerPoint.pdf", "category": "other"},
+    {"name": "[NVIDIA] JetsonNano.pdf", "category": "other"},
+    {"name": "AZ900.pdf", "category": "other"}
+]

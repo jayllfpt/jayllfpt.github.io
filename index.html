@@ -11,6 +11,9 @@
     <header>
         <nav class="navbar">
             <div class="nav-links">
+                <button class="menu-button" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <span class="name">TraiPPN</span>
                 <div class="nav-center">
                     <a href="index.html" class="active">Home</a>
@@ -36,11 +39,25 @@
     </header>
 
     <main>
-        <section id="home" class="section">
-            <div class="hero-content">
-                <h1 class="reveal-text">PHAM PHU NGOC TRAI</h1>
-                <h2 class="reveal-text">AI Engineer</h2>
-                <p class="reveal-text">I possess expertise in crafting conversational AI solutions, with the ability to deliver a functional chatbot proof-of-concept within a 2-day timeframe.</p>
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="avatar-container reveal-item">
+                    <div class="avatar-slideshow">
+                        <img src="statics/images/avatar/avatar_2024.jpg" alt="TraiPPN Avatar 2024" class="avatar-slide active">
+                        <img src="statics/images/avatar/avatar_2023.jpg" alt="TraiPPN Avatar 2023" class="avatar-slide">
+                        <img src="statics/images/avatar/avatar_2018.jpeg" alt="TraiPPN Avatar 2018" class="avatar-slide">
+                    </div>
+                    <div class="avatar-dots">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <h1 class="reveal-text">PHAM PHU NGOC TRAI</h1>
+                    <h2 class="reveal-text">AI Engineer</h2>
+                    <p class="reveal-text">I possess expertise in crafting conversational AI solutions, with the ability to deliver a functional chatbot proof-of-concept within a 2-day timeframe.</p>
+                </div>
             </div>
         </section>
 

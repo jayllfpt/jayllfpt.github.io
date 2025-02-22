@@ -2,26 +2,35 @@
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .gallery-category {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.gallery-category.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .category-title {
-    color: #007bff;
-    font-size: 1.5rem;
-    margin: 2rem 0 1rem;
+    font-size: 2rem;
+    color: var(--accent-cyan);
+    margin-bottom: 2rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid #007bff;
-    text-shadow: 0 0 1px rgba(0, 123, 255, 0.2);
+    border-bottom: 2px solid var(--accent-purple);
+    text-align: center;
 }
 
-.gallery-grid {
+.category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
 }
 
 .gallery-item {
@@ -32,6 +41,14 @@
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     aspect-ratio: 4/3;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.gallery-item.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .gallery-item:hover {
@@ -43,15 +60,14 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: filter 0.3s ease, transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .gallery-item:hover img {
-    filter: brightness(1.1);
     transform: scale(1.1);
 }
 
-.gallery-item .caption {
+.caption {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -189,21 +205,28 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1rem;
-    }
-
-    .lightbox-nav {
-        font-size: 1.5rem;
         padding: 0.5rem;
     }
 
-    .lightbox-close {
+    .category-title {
         font-size: 1.5rem;
+        margin-bottom: 1.5rem;
     }
 
-    .lightbox-caption {
-        font-size: 1rem;
+    .gallery-category {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-section {
+        padding: 1rem;
     }
 }

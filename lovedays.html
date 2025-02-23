@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story - TraiPPN & MyLove</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lovedays.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body class="love-theme">
+    <header>
+        <nav class="navbar">
+            <div class="nav-links">
+                <button class="menu-button" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <span class="name">TraiPPN</span>
+                <div class="nav-center">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="right-section">
+                    <span class="nickname">JayLL</span>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/jayll13" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/jayllfpt" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.facebook.com/jayllFA/" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="love-container">
+            <!-- Couple Section -->
+            <section class="couple-section reveal-section">
+                <div class="couple-avatars">
+                    <div class="avatar-wrapper boy reveal-item">
+                        <img src="statics/images/lovedays/avatar/boy.jpg" alt="TraiPPN" class="avatar">
+                        <h2 class="lover-name">TraiPPN</h2>
+                    </div>
+                    <div class="heart-icon reveal-item">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="avatar-wrapper girl reveal-item">
+                        <img src="statics/images/lovedays/avatar/girl.jpg" alt="MyLove" class="avatar">
+                        <h2 class="lover-name">MyLove</h2>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Days Counter Section -->
+            <section class="counter-section reveal-section">
+                <div class="counter-container reveal-item">
+                    <i class="fas fa-hourglass-half"></i>
+                    <h2 class="days-count">Loading...</h2>
+                    <p class="counter-text">Ngày bên nhau</p>
+                </div>
+            </section>
+
+            <!-- Love Gallery Section -->
+            <section class="love-gallery reveal-section">
+                <h2 class="section-title reveal-text">Khoảnh Khắc Yêu Thương</h2>
+                <div class="gallery-grid">
+                    <!-- Images will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Memory Timeline Section -->
+            <section class="memory-timeline reveal-section">
+                <h2 class="section-title reveal-text">Dấu Ấn Tình Yêu</h2>
+                <div class="timeline">
+                    <!-- Timeline items will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Love Notes Section -->
+            <section class="love-notes reveal-section">
+                <h2 class="section-title reveal-text">Lời Nhắn Yêu Thương</h2>
+                <div class="notes-container">
+                    <div class="note-input">
+                        <textarea id="noteText" placeholder="Viết lời yêu thương..."></textarea>
+                        <button id="addNote" class="btn-add-note">
+                            <i class="fas fa-heart"></i> Gửi
+                        </button>
+                    </div>
+                    <div class="notes-display">
+                        <!-- Notes will be added dynamically -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <audio id="bgMusic" loop>
+            <source src="statics/music/love-song.mp3" type="audio/mp3">
+        </audio>
+        <button class="music-toggle">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-nav prev" aria-label="Previous image">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav next" aria-label="Next image">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Our Love Story. Made with <i class="fas fa-heart"></i></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/lovedays.js"></script>
+</body>
+</html>
